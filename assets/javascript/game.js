@@ -7,10 +7,10 @@ var winsText = document.getElementById("wins-text");
 
 document.onkeyup = function(event) {
     var userGuess = event.key;
-
+    var userInput = event.key.toUpperCase();
     
 
     userChoiceText.textContent = "You chose: " + userGuess;
-    letterChosenText.textContent = "Already Guessed: " + userGuess;
-    winsText.textContent = "wins: " + wins;
+    letterChosenText.textContent = "Already Guessed: " + userInput;
+    winsText.textContent = "Wins: " + wins;
 };
