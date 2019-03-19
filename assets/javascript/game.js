@@ -11,6 +11,10 @@ document.onkeyup = function(event) {
     
 
     userChoiceText.textContent = "You chose: " + userGuess;
-    letterChosenText.textContent = "Already Guessed: " + userInput;
+
+    
+    letterChosenText.textContent = "Already Guessed: " + userInput; 
+
+
     winsText.textContent = "Wins: " + wins;
 };
