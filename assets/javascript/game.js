@@ -11,12 +11,12 @@ var arrayPossible =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o",
 var arraySelector =[];
 var guessCount = 10;
 var wordChoice = ["T","E","X","A","S"];
-var displayWord = ["_","_","_","_","_"];
+var displayWord = ["_ ","_ ","_ ","_ ","_ "];
 //var wordText = document.getElementById("word-text")
 
 function words(userInput) {
    var isFound = false;
-    for (var i = 0; i < wordChoice; i++) {
+    for (var i = 0; i < wordChoice.length; i++) {
         if(wordChoice[i].toUpperCase() === userInput) {
             displayWord[i] = userInput;
             isFound = true;
