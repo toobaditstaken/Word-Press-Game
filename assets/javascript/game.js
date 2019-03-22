@@ -14,6 +14,7 @@ var arraySelector =[];
 var guessCount = 5;
 var wordChoice = [];
 var displayWord = [];
+var resetGame = false;
 
 
 function giveWord() {
@@ -72,6 +73,11 @@ function wonLoss(y) {
 
 
 document.onkeyup = function(event) {
+    if (resetGame) {
+        onLoad();
+        resetGame = false;
+        return;
+    }
     var userGuess = event.key;
     var userInput = event.key.toUpperCase() ;
     var isInWord = false;
@@ -92,11 +98,13 @@ document.onkeyup = function(event) {
         
         if (displayWord.indexOf("_") < 0) {
             onDisplay("w");
+            resetGame = true;
         }
         if (isInWord === false){
         guessCount--;
         if (guessCount === 0) {
         onDisplay("l");
+        resetGame = true;
         }
         }
         arraySelector.push(userInput);
