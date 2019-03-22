@@ -76,6 +76,10 @@ document.onkeyup = function(event) {
     if (resetGame) {
         onLoad();
         resetGame = false;
+        guessCount = 5;
+        guessCountText.textContent = "Guesses: " + guessCount;
+        arrayPossible =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+        arraySelector =[];
         return;
     }
     var userGuess = event.key;
@@ -106,7 +110,7 @@ document.onkeyup = function(event) {
         if (guessCount === 0) {
         onDisplay("l");
         resetGame = true;
-        guessCount = 5;
+        
         }
         }
         arraySelector.push(userInput);
@@ -117,11 +121,17 @@ document.onkeyup = function(event) {
         
     };
 
-    userChoiceText.textContent = "You chose: " + userGuess;
+    if (resetGame) {
+        userChoiceText.textContent = "You chose: ";
+        letterChosenText.textContent = "Already Guessed: ";
+    }
+    else {
+        userChoiceText.textContent = "You chose: " + userGuess;
+        letterChosenText.textContent = "Already Guessed: " + arraySelector;
+    }
+    
 
     wordText.textContent = "Word: " + displayWord;
-    
-    letterChosenText.textContent = "Already Guessed: " + arraySelector; 
     
     guessCountText.textContent = "Guesses: " + guessCount;
 
