@@ -99,12 +99,14 @@ document.onkeyup = function(event) {
         if (displayWord.indexOf("_") < 0) {
             onDisplay("w");
             resetGame = true;
+            wins++;
         }
         if (isInWord === false){
         guessCount--;
         if (guessCount === 0) {
         onDisplay("l");
         resetGame = true;
+        guessCount = 5;
         }
         }
         arraySelector.push(userInput);
