@@ -10,17 +10,19 @@
 </head>
 
 
-<body>
+<body onload = "onLoad()">
     <h1>Hangman</h1>
 
     <div>
+        
         <p id="directions-text">Press any key to get started!</p>
         <p id="wins-text">Wins: 0</p>
-        <p id="guess-count">Guesses: 10</p>
+        <p id="guess-count">Guesses: 5</p>
         <p id="userchoice-text">You chose: </p>
         <p id="letterschosen-text">Already Guessed: </p>
         <p id="word-text">Word: </p>
-        
+        <p id="won-text">You won!</p>
+        <p id="lose-text">You lost!</p>
     </div>
 
     <script src = "assets/javascript/game.js"></script>

@@ -1,5 +1,5 @@
+
 var wins = 0;
-//var computerChoices = ["button", "apple", "abbott"]
 
 var directionsText = document.getElementById("directions-text");
 var userChoiceText = document.getElementById("userchoice-text");
@@ -7,12 +7,39 @@ var letterChosenText = document.getElementById("letterschosen-text");
 var guessCountText = document.getElementById("guess-count");
 var wordText = document.getElementById("word-text");
 var winsText = document.getElementById("wins-text");
+var wonText = document.getElementById("won-text");
+var loseText = document.getElementById("lose-text");
 var arrayPossible =["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 var arraySelector =[];
-var guessCount = 10;
-var wordChoice = ["T","E","X","A","S"];
-var displayWord = ["_ ","_ ","_ ","_ ","_ "];
-//var wordText = document.getElementById("word-text")
+var guessCount = 5;
+var wordChoice = [];
+var displayWord = [];
+
+
+function giveWord() {
+    var wordSelection = ["Button", "Tree", "Candy", "madonna", "Thunder"]
+    var random = Math.floor((Math.random() * 5));
+    return wordSelection[random].split('');
+};
+
+function wordGiven() {
+    var whateverTheFu = [];
+    for (var i = 0; i < wordChoice.length; i++) {
+        whateverTheFu.push("_");
+    }
+    return whateverTheFu;
+};
+
+function onLoad() {
+    wordChoice = giveWord();
+    displayWord = wordGiven();
+    onDisplay("p");
+};
+
+function onDisplay(z) {
+    wordText.textContent = "Word: " + displayWord;
+    wonLoss(z);
+};
 
 function words(userInput) {
    var isFound = false;
@@ -23,6 +50,23 @@ function words(userInput) {
         }
     }
     return isFound;
+};
+
+function wonLoss(y) {
+    var x = document.getElementById("won-text");
+    var x2 = document.getElementById("lose-text");
+    if(y === "w") {
+        x.style.visibility = "visible";
+        x2.style.visibility = "hidden";
+    }
+    else if (y === "l") {
+        x.style.visibility = "hidden";
+        x2.style.visibility = "visible";
+    }
+    else {
+        x.style.visibility = "hidden";
+        x2.style.visibility = "hidden";
+    }
 }
 
 
@@ -45,15 +89,23 @@ document.onkeyup = function(event) {
         if 
         (isFound){
         isInWord = words(userInput);
+        
+        if (displayWord.indexOf("_") < 0) {
+            onDisplay("w");
+        }
         if (isInWord === false){
-        guessCount--;}
+        guessCount--;
+        if (guessCount === 0) {
+        onDisplay("l");
+        }
+        }
         arraySelector.push(userInput);
         arraySelector.sort;
         break;
         }
         
         
-    }
+    };
 
     userChoiceText.textContent = "You chose: " + userGuess;
 
