@@ -18,15 +18,15 @@ var resetGame = false;
 
 
 function giveWord() {
-    var wordSelection = ["Button", "Tree", "Candy", "madonna", "Thunder"]
-    var random = Math.floor((Math.random() * 5));
+    var wordSelection = ["Button", "Tree", "Candy", "Madonna", "Thunder", "Water", "Superman", "Photosynthesis", "England", "Barnacle"]
+    var random = Math.floor((Math.random() * 10));
     return wordSelection[random].split('');
 };
 
 function wordGiven() {
     var whateverTheFu = [];
     for (var i = 0; i < wordChoice.length; i++) {
-        whateverTheFu.push("_");
+        whateverTheFu.push(" _ ");
     }
     return whateverTheFu;
 };
@@ -100,7 +100,7 @@ document.onkeyup = function(event) {
         (isFound){
         isInWord = words(userInput);
         
-        if (displayWord.indexOf("_") < 0) {
+        if (displayWord.indexOf(" _ ") < 0) {
             onDisplay("w");
             resetGame = true;
             wins++;
