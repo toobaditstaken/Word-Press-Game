@@ -12,7 +12,7 @@ The word press game is a minimal viable product version of a Hangman game, the a
   
   * Once you win or lose press any key again to play again.
 
-# Software to create Liri
+# Languages used to create Word-Press-Game
 
 javascript, 
 CSS,
